@@ -1,0 +1,199 @@
+<div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title"><strong>My Orders</strong></h4>
+    <!-- Subtitle -->
+    <h6 class="font-weight-bold indigo-text py-2">Hello {{orders.item.cardName}}!! Here is your
+        order
+        history</h6>
+    {{#each orders }}
+    <div class="card-body card-body-cascade">
+        <div class="card-body">
+            <div class="card-body ">
+                {{#each this.items}}
+
+                <li class="list-group-item border-0 " style="background-color:honeydew">
+                    <div class="row">
+                        <div class="col">
+                            {{this.item.productName}}
+                        </div>
+                        <div class="col">
+                            <span class="badge badge-primary">{{this.qty}}</span>
+                        </div>
+                        <div class="col">
+                            <span class="card-body">₹{{this.price}}</span>
+                        </div>
+                    </div>
+                </li>
+                {{/each}}
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <div class="panel-footer"><strong>Total Price:
+                        ₹{{this.cart.totalPrice}}</strong> </div>
+            </div>
+        </div>
+
+    </div>
+    {{/each}}
+
+
+    <!-- Facebook -->
+    <a type="button" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+    <!-- Twitter -->
+    <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
+    <!-- Google + -->
+    <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a>
+
+</div>
+{{!-- // --}}
+
+<div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title"><strong>Doctors's Appointment</strong></h4>
+    <hr>
+    <!-- Subtitle -->
+
+    <div class="card-body card-body-cascade">
+        <div class="card-body">
+            <div class="card-body ">
+                <table class="table table-striped">
+                    <thead>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Phone
+                        </th>
+                        <th>
+                            Time
+                        </th>
+                        <th>
+                            Address
+                        </th>
+                    </thead>
+                    <tbody>
+                        {{#each patients}}
+                        <tr>
+                            <td>
+                                {{this.patientsName}}
+                            </td>
+                            <td>
+                                {{this.patientsMobile}}
+                            </td>
+                            <td>
+                                {{this.preferredTime}}
+                            </td>
+                            <td>
+                                {{this.patientsAddress}}
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-danger" href="profile/cancel">Cancel Booking</a>
+                            </td>
+                            {{/each}}
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+        <hr>
+    </div>
+
+
+
+    <!-- Facebook -->
+    <a type="button" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+    <!-- Twitter -->
+    <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
+    <!-- Google + -->
+    <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a>
+
+</div>
+{{!-- /// --}}
+<!-- Card content -->
+<div class="card-body card-body-cascade text-center">
+
+    <!-- Title -->
+    <h4 class="card-title"><strong>Hospital appoitments</strong></h4>
+    <!-- Subtitle -->
+    {{!-- {{#each orders }} --}}
+    <div class="card-body card-body-cascade">
+        <div class="card-body">
+            <div class="card-body ">
+                <li class="list-group-item border-0 " style="background-color:honeydew">
+                    <div class="row">
+                        <div class="col">
+                            <strong>Name</strong>
+                        </div>
+                        <div class="col">
+                            <span class="card-body"><strong>Problem</strong></span>
+                        </div>
+                        <div class="col">
+                            <span class="card-body"><strong>Age</strong></span>
+                        </div>
+                        <div class="col">
+                            <span class="card-body"><strong>Ph.no</strong></span>
+                        </div>
+                        <div class="col">
+                            <span class="card-body"><strong></strong></span>
+                        </div>
+                    </div>
+                    {{#each patient}}
+                    <form action="/deleteAppoitment?id={{this._id}}" method="POST">
+                        <div class="row">
+                            <div class="col">
+                                {{this.patient}}
+                            </div>
+                            <div class="col">
+                                <span class="card-body">{{this.problem}}</span>
+                            </div>
+                            <div class="col">
+                                <span class="card-body">{{this.age}}</span>
+                            </div>
+                            <div class="col">
+                                <span class="card-body">{{this.no}}</span>
+                            </div>
+                            <div class="col">
+                                <span class="card-body"><button class="btn btn-outline-danger"
+                                        type="submit">Cancel</button></span>
+                            </div>
+                        </div>
+                    </form>
+                    {{/each}}
+                </li>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                {{#if pricehospital}}
+                <div class="panel-footer"><strong>Total Price:{{pricehospital}}</strong></div>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+    {{!-- {{/each}} --}}
+
+
+    <!-- Facebook -->
+    <a type="button" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+    <!-- Twitter -->
+    <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
+    <!-- Google + -->
+    <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a>
+
+</div>
